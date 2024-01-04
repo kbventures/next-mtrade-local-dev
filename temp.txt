@@ -121,8 +121,14 @@ Session for language
 Build your images seperately and then combine them using docker compose
 https://www.reddit.com/r/docker/comments/18d7641/ive_been_trying_to_set_up_docker_with_prisma/
 
+Testing Crash Course:
+https://betterprogramming.pub/a-crash-course-in-testing-next-js-projects-9fc57ed4a5bb
+
 
 
 sudo docker-compose up -d
 sudo docker-compose ps
 sudo docker-compose exec postgres psql -U kmb -d mtrade-db
+
+upgrade to version 4: next auth
+https://next-auth.js.org/getting-started/upgrade-v4
