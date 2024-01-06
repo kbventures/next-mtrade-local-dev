@@ -132,3 +132,5 @@ sudo docker-compose exec postgres psql -U kmb -d mtrade-db
 
 upgrade to version 4: next auth
 https://next-auth.js.org/getting-started/upgrade-v4
+Setting up images with Sharp?(recomended by next.js)
+https://blog.logrocket.com/processing-images-sharp-node-js/
