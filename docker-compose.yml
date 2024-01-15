@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: mtrade
+      POSTGRES_PASSWORD: mtrade
+      POSTGRES_DB: mtrade-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - mtrade-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  mtrade-postgres-data:
+
+# sudo docker-compose up -d
+# sudo docker-compose ps 
+# sudo docker-compose exec postgres psql -U mtrade -d mtrade-db
+# 
+
