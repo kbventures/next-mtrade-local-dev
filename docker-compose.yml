@@ -1,4 +1,5 @@
-version: '3'
+version: '3.8'
+
 services:
   postgres:
     container_name: mtrade-postgres-test
@@ -13,7 +14,10 @@ services:
       - mtrade-postgres-data:/var/lib/postgresql/data
 
   nextjs-app:
-    image: mtrade-app-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mtrade-app-test
     ports:
       - "3000:3000"
     depends_on:
@@ -23,6 +27,32 @@ services:
 
 volumes:
   mtrade-postgres-data:
+
+# version: '3'
+# services:
+#   postgres:
+#     container_name: mtrade-postgres-test
+#     image: postgres:13.3
+#     environment:
+#       POSTGRES_USER: mtrade
+#       POSTGRES_PASSWORD: mtrade
+#       POSTGRES_DB: mtrade-db
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - mtrade-postgres-data:/var/lib/postgresql/data
+
+#   nextjs-app:
+#     image: mtrade-app-test
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - postgres
+#     env_file:
+#       - .env.local
+
+# volumes:
+#   mtrade-postgres-data:
 # version: '3'
 # services:
 #   postgres:
@@ -38,10 +68,4 @@ volumes:
 #       - mtrade-postgres-data:/var/lib/postgresql/data
 # volumes:
 #   mtrade-postgres-data:
-
-
-# sudo docker-compose up -d
-# sudo docker-compose ps 
-# sudo docker-compose exec postgres psql -U mtrade -d mtrade-db
-# 
 
