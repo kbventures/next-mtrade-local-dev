@@ -125,10 +125,26 @@ Testing Crash Course:
 https://betterprogramming.pub/a-crash-course-in-testing-next-js-projects-9fc57ed4a5bb
 
 
-
+Runs services found in you docker-compose.yml file
 sudo docker-compose up -d
+
+Container Service Status: 
 sudo docker-compose ps
-sudo docker-compose exec postgres psql -U kmb -d mtrade-db
+
+Postgresql shell inside container: 
+sudo docker-compose exec postgres psql -U mtrade -d mtrade-db
+
+
+Next.js Image
+sudo docker build -t mtrade-app-test .
+sudo docker run -p 3000:3000 --env-file .env.local mtrade-app-test
+sudo docker-compose logs -f
+
+ALSO REMOVE VOLUMES
+sudo docker-compose down -v
+
+
+
 
 upgrade to version 4: next auth
 https://next-auth.js.org/getting-started/upgrade-v4
